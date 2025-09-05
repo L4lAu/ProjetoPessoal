@@ -31,3 +31,12 @@ const criarContato = async (contatoData) => {
     }
 };
 
+
+// cria um usuario
+const cadastrarUsuario = async (usuarioData) => {
+    try {
+        return await create ('usuarios', usuarioData);
+    } catch (err) {
+        console.error("erro ao cadastrar usuario: ", err)
+    }
+}
