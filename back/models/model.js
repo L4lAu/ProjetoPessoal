@@ -3,7 +3,7 @@ import { readAll, read, create, update, deleteRecord } from "../config/database"
 
 // listar usuarios
 const listarUsuarios = async () => {
-    try{
+    try {
         return await readAll('usuarios');
     } catch (err) {
         console.error("erro ao ler usuarios", err);
@@ -26,7 +26,7 @@ const obterUsuarioPorId = async (id) => {
 // cria um usuario
 const cadastrarUsuario = async (usuarioData) => {
     try {
-        return await create ('usuarios', usuarioData);
+        return await create('usuarios', usuarioData);
     } catch (err) {
         console.error("erro ao cadastrar usuario: ", err)
     };
@@ -37,7 +37,7 @@ const cadastrarUsuario = async (usuarioData) => {
 const criarContato = async (contatoData) => {
     try {
         return await create('contatos', contatoData)
-    } catch (err){
+    } catch (err) {
         console.error(`erro ao criar contato: `, err);
         throw err;
     };
@@ -47,7 +47,7 @@ const criarContato = async (contatoData) => {
 // atualiza um contato 
 const atualizarContato = async (contatoData, id) => {
     try {
-        return await update ('contato', contatoData, `id = ${id}`);
+        return await update('contato', contatoData, `id = ${id}`);
     } catch (err) {
         console.error(`erro ao atualizar contato de id ${id}: `, err);
         throw err;
@@ -57,9 +57,12 @@ const atualizarContato = async (contatoData, id) => {
 
 const excluiContato = async (id) => {
     try {
-        return await deleteRecord ('contato', `id = ${id}`);
+        return await deleteRecord('contato', `id = ${id}`);
     } catch (err) {
         console.error(`erro ao excluir contato de id ${id}: `, err);
         throw err;
     }
 }
+
+
+export { listarUsuarios, obterUsuarioPorId, cadastrarUsuario, criarContato, atualizarContato, excluiContato }
