@@ -21,15 +21,6 @@ const obterUsuarioPorId = async (id) => {
     };
 };
 
-// cria contato
-const criarContato = async (contatoData) => {
-    try {
-        return await create('contatos', contatoData)
-    } catch (err){
-        console.error(`erro ao criar contato: `, err);
-        throw err;
-    }
-};
 
 
 // cria um usuario
@@ -38,5 +29,26 @@ const cadastrarUsuario = async (usuarioData) => {
         return await create ('usuarios', usuarioData);
     } catch (err) {
         console.error("erro ao cadastrar usuario: ", err)
-    }
-}
+    };
+};
+
+
+// cria contato
+const criarContato = async (contatoData) => {
+    try {
+        return await create('contatos', contatoData)
+    } catch (err){
+        console.error(`erro ao criar contato: `, err);
+        throw err;
+    };
+};
+
+
+const atualizarContato = async (contatoData, id) => {
+    try {
+        return await update ('contato', contatoData, `id = ${id}`);
+    } catch (err) {
+        console.error(`erro ao atualizar contato de id ${id}: `, err);
+        throw err;
+    };
+};
