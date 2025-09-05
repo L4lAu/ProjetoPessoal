@@ -1,0 +1,33 @@
+import { readAll, read, create, update, deleteRecord } from "../config/database";
+
+
+// listar usuarios
+const listarUsuarios = async () => {
+    try{
+        return await readAll('usuarios');
+    } catch (err) {
+        console.error("erro ao ler usuarios", err);
+        throw err;
+    };
+};
+
+// obtem usuario por id
+const obterUsuarioPorId = async (id) => {
+    try {
+        return await read('usuarios', `id = ${id}`);
+    } catch (err) {
+        console.error(`erro ao obter usuario de id ${id}: `, err);
+        throw err;
+    };
+};
+
+// cria contato
+const criarContato = async (contatoData) => {
+    try {
+        return await create('contatos', contatoData)
+    } catch (err){
+        console.error(`erro ao criar contato: `, err);
+        throw err;
+    }
+};
+
