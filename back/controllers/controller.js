@@ -25,3 +25,21 @@ const obterUsuarioPorIdController = async (req, res) => {
         console.error(err);
     };
 };
+
+const cadastrarUsuarioController = async (req, res) => {
+    try{
+        const {nome, email, senha, tipo} = req.body;
+
+        const usuarioData = {
+            nome: nome,
+            email: email,
+            senha: senha
+        };
+
+        const usuarioNovo = await cadastrarUsuario(usuarioData);
+        res.status(201).json({message: "usuario criado com sucesso", usuarioNovo});
+    } catch (err) {
+        res.status(500).json("erro ao cadastrar usuario", err)
+        console.error('erro ao cadastrar usuario', err);
+    };
+};
