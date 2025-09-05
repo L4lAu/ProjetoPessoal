@@ -44,6 +44,7 @@ const criarContato = async (contatoData) => {
 };
 
 
+// atualiza um contato 
 const atualizarContato = async (contatoData, id) => {
     try {
         return await update ('contato', contatoData, `id = ${id}`);
@@ -52,3 +53,13 @@ const atualizarContato = async (contatoData, id) => {
         throw err;
     };
 };
+
+
+const excluiContato = async (id) => {
+    try {
+        return await deleteRecord ('contato', `id = ${id}`);
+    } catch (err) {
+        console.error(`erro ao excluir contato de id ${id}: `, err);
+        throw err;
+    }
+}
