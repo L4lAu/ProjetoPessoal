@@ -10,3 +10,18 @@ const listarUsuariosController = async (req, res) => {
         console.error(err);
     };
 };
+
+const obterUsuarioPorIdController = async (req, res) => {
+    try {
+        const usuario = await obterUsuarioPorId(req.params.id);
+
+        if(!usuario){
+            return res.status(404).json({message: 'usuario não encontrado' });
+        }
+
+        res.status(200).json(usuario);
+    } catch (err) {
+        res.status(500).json({message: "erro interno no servidor: ", err});
+        console.error(err);
+    };
+};
