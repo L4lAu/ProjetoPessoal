@@ -45,9 +45,19 @@ const criarContato = async (contatoData) => {
 
 
 // atualiza um contato 
-const atualizarContato = async (contatoData, id) => {
+const atualizarApelidoContato = async (contatoData, id) => {
     try {
-        return await update('contato', contatoData, `id = ${id}`);
+        return await update('contato', contatoData.apelido, `where contato_id = ${contatoData.contato_id} and usuario_id = ${contatoData.usuario_id} `);
+    } catch (err) {
+        console.error(`erro ao atualizar contato de id ${id}: `, err);
+        throw err;
+    };
+};
+
+// atualiza um contato 
+const atualizarIdContato = async (contatoData, id) => {
+    try {
+        return await update('contato', contatoData.contato_id, `where contato_id = ${contatoData.contato_id} and usuario_id = ${contatoData.usuario_id} `);
     } catch (err) {
         console.error(`erro ao atualizar contato de id ${id}: `, err);
         throw err;
@@ -65,4 +75,4 @@ const excluiContato = async (id) => {
 }
 
 
-export { listarUsuarios, obterUsuarioPorId, cadastrarUsuario, criarContato, atualizarContato, excluiContato }
+export { listarUsuarios, obterUsuarioPorId, cadastrarUsuario, criarContato, atualizarApelidoContato, atualizarIdContato, excluiContato }

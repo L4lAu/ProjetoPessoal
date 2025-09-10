@@ -1,4 +1,4 @@
-import { listarUsuarios, obterUsuarioPorId, cadastrarUsuario, criarContato, atualizarContato, excluiContato } from "../models/model.js";
+import { listarUsuarios, obterUsuarioPorId, cadastrarUsuario, criarContato, atualizarApelidoContato, atualizarIdContato, excluiContato } from "../models/model.js";
 
 
 const listarUsuariosController = async (req, res) => {
@@ -64,7 +64,20 @@ const criarContatoController = async (req, res) => {
 
 const atualizarContatoController = async (req, res) => {
     try{
-        const {id, usuario_id, contato_id} = req.params.id;
-        const {apelido}
-    }
-}
+        const {apelido, contato_id, usuario_id} = req.body;
+        
+        const contatoData = {
+            apelido: apelido,
+            contato_id: contato_id, 
+            usuario_id: usuario_id,
+        };
+
+        const novoIdContato = await atualizarIdContato(contatoData);
+        const novoApelidoContato = await atualizarApelidoContato(contatoData);
+
+        res.status(201).json({ message: 'contato atualizado com sucesso', novoIdContato, novoApelidoContato});
+    } catch (err) {
+        res.status(500).json("erro ao atualizar contato", err);
+        console.error('erro ao atualizar contato', err);
+    };
+};
