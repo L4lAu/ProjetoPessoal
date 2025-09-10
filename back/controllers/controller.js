@@ -46,6 +46,25 @@ const cadastrarUsuarioController = async (req, res) => {
 
 const criarContatoController = async (req, res) => {
     try {
-        const {apelido, usuario_id}
+        const {usuario_id, contato_id, apelido} = req.body;
+
+        const contatoData = {
+            usuario_id: usuario_id,
+            contato_id: contato_id,
+            apelido: apelido,
+        };
+
+        const novoContato = await criarContato(contatoData);
+        res.status(201).json({ message: "contato adicionado com sucesso", novoContato})
+    } catch (err) {
+        res.status(500).json("erro ao adicionar contato", err);
+        console.error('erro ao adicionar contato', err);
+    };
+};
+
+const atualizarContatoController = async (req, res) => {
+    try{
+        const {id, usuario_id, contato_id} = req.params.id;
+        const {apelido}
     }
 }
