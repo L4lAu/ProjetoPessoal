@@ -1,4 +1,4 @@
-import { listarUsuarios, obterUsuarioPorId, cadastrarUsuario, criarContato, atualizarApelidoContato, atualizarIdContato, excluiContato } from "../models/model.js";
+import { listarUsuarios, obterUsuarioPorId, cadastrarUsuario} from "../models/model.js";
 
 
 const listarUsuariosController = async (req, res) => {
