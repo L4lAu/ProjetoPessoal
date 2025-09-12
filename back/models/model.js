@@ -65,11 +65,11 @@ const atualizarIdContato = async (contatoData, id) => {
 };
 
 
-const excluiContato = async (id) => {
+const excluiContato = async (usuario_id, contato_id) => {
     try {
-        return await deleteRecord('contato', `id = ${id}`);
+        return await deleteRecord('contato', `contato_id = ${contato_id} and usuario_id =${usuario_id}`);
     } catch (err) {
-        console.error(`erro ao excluir contato de id ${id}: `, err);
+        console.error(`erro ao excluir contato de id ${contato_id}: `, err);
         throw err;
     }
 }
