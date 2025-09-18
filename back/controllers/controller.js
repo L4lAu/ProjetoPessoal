@@ -1,4 +1,4 @@
-import { listarUsuarios, obterUsuarioPorId, cadastrarUsuario} from "../models/model.js";
+import { listarUsuarios, obterUsuarioPorId, cadastrarUsuario } from "../models/model.js";
 
 
 const listarUsuariosController = async (req, res) => {
@@ -44,3 +44,4 @@ const cadastrarUsuarioController = async (req, res) => {
     };
 };
 
+export default { listarUsuariosController, obterUsuarioPorIdController, cadastrarUsuarioController };

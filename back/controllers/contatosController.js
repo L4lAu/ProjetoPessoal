@@ -71,3 +71,5 @@ const excluiContatoController = async (req, res) => {
         console.error("erro em excluir conntato: ", err)
     }
 }
+
+export default { criarContatoController, atualizarIdContatoController, atualizarApelidoContatoController, excluiContatoController}
