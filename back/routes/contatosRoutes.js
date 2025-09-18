@@ -5,3 +5,4 @@ const router = express.Router();
 
 router.get("/criarContato", criarContatoController);
 router.get('/atualizarContato', atualizarIdContatoController);
+router.get('/atualizarApelidoDoContato', atualizarApelidoContatoController);
