@@ -57,9 +57,17 @@ const atualizarApelidoContatoController = async (req, res) => {
 
 const excluiContatoController = async (req, res) => {
     try {
-        const { contato_id, usuario_id};
-
+        const { contato_id, usuario_id} = req.body;
         
-
+        const deleteData = {
+            contato_id,
+            usuario_id,
+        };
+        
+        const contatoExcluido = await excluiContato(deleteData);
+        res.status(201).json({message: 'contato excluido com sucesso', contatoExcluido})
+    } catch(err) {
+        res.status(500).json("erro ao exluir contato: ", err);
+        console.error("erro em excluir conntato: ", err)
     }
 }
