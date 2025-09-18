@@ -72,4 +72,4 @@ const excluiContatoController = async (req, res) => {
     }
 }
 
-export default { criarContatoController, atualizarIdContatoController, atualizarApelidoContatoController, excluiContatoController}
+export default { criarContatoController, atualizarIdContatoController, atualizarApelidoContatoController, excluiContatoController};
