@@ -4,3 +4,4 @@ import express from "express"
 const router = express.Router();
 
 router.get('/listarUsuarios', listarUsuariosController);
+router.get('/obterUsuario', obterUsuarioPorIdController);
